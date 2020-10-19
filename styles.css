@@ -1,0 +1,252 @@
+/*=========================================*/
+/*  Global Styles  */
+
+body {
+    font-family: 'Oswald', sans-serif;
+    background-color: black;
+    color: white;
+}
+
+img {
+    width: 800px;
+}
+
+/*=========================================*/
+/*  Carousel  */
+
+.carousel {
+    max-width: 800px;
+    margin: 50px auto 0 auto;
+    filter: drop-shadow(0 2px 5px rgba(255, 187, 170, 0.45));
+}
+
+/* images */
+.carousel-item img {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+}
+
+.carousel-item-visible img{
+    display: block;
+    position: relative;
+    animation-duration: 900ms;
+    animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 25%;
+    }
+
+    to {
+        opacity: 100%;
+    }
+}
+
+/* image description */
+li {
+    margin-top: 0;
+    margin-bottom: 4px;
+}
+
+.title,
+.sub-title {
+    font-weight: 600;
+}
+
+.description {
+    display: none;
+    box-sizing: border-box;
+    font-size: 12px;
+    text-align: right;
+    margin: 0;
+    padding: 6px;
+}
+
+.description-visible {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.27);
+}
+
+.title {
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 7px;
+}
+
+.info-animation {
+    animation-name: textFadeIn;
+    animation-duration: 3500ms;
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.details {
+    list-style-type: none;
+    display: grid;
+    margin: 0;
+}
+
+.imdb {
+    padding-top: 4px;
+    margin-bottom: 0;
+}
+
+.imdb-logo {
+    width: 45px;
+}
+
+/* Image Description Media Queries */
+@media screen and (min-width: 600px){
+    .title {
+        font-size: 2.62vw;
+    }
+
+    .description {
+        font-size: 1.72vw;
+        position: absolute;
+        bottom: 38.5px;
+        right: 0;
+        width: 33.33%;
+        padding-right: 10px;
+    }
+}
+
+/* Cap font-size */
+@media screen and (min-width: 1000px){
+    .title {
+        font-size: 25px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+}
+
+/*=========================================*/
+/*  Buttons  / Interface */
+
+.carousel-actions {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    top: 50%;
+    transform: translateY(-200%);
+}
+
+@media screen and (min-width: 599px){
+    .carousel-actions {
+        transform: translateY(-50%);
+    }
+}
+
+.buttons {
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    opacity: 20%;
+}
+
+/*smallest width 284*/
+#carousel-button-previous {
+    margin-left: 16.25%;
+    transform: translateX(-50%);
+}
+
+#carousel-button-next {
+    margin-right: 16.25%;
+    transform: translateX(50%);
+}
+
+@media screen and (min-width: 500px){
+    .buttons {
+        font-size: 25px;
+        width: 39px;
+        height: 39px;
+    }
+}
+
+@media screen and (min-width: 750px){
+    .buttons {
+        font-size: 35px;
+        width: 56px;
+        height: 56px;
+    }
+}
+
+@media screen and (min-width: 866px){
+    .buttons {
+        width: 65px;
+        height: 65px;
+        font-size: 41px;
+    }
+
+    #carousel-button-previous {
+        margin-left: 0px;
+        transform: translateX(-50%);
+    }
+
+    #carousel-button-next {
+        margin-right: 0px;
+        transform: translateX(50%);
+    }
+}
+
+/* button-states */
+.buttons:hover,
+.buttons:focus {
+    cursor: pointer;
+    opacity: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ff763a;
+    filter: drop-shadow(0 1px 10px rgba(255, 201, 52, 0.58));
+}
+
+.buttons:active {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #ffce22;
+    filter: drop-shadow(0 1px 10px #ffe199);
+}
+
+/* Progress bar */
+.progress-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Progress-bar: keep height consistent for overlay */
+@media screen and (min-width: 600px){
+    .progress-bar {
+        height: 38.5px;
+    }
+}
+
+.bar {
+    background-color: #ff763a;
+    border-radius: 3px;
+    width: 8.75%;
+    height: 3.5px;
+    margin: 1.25%;
+}
+
+.active {
+    background-color: #fe2000;
+    filter: drop-shadow(0 4px 7px #ff0000);
+}
